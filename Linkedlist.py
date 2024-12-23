@@ -94,7 +94,27 @@ class LinkedList:
         if not found:
             print("Given data was not found")
         
+    def remove_by_value(self, value):
+        if self.head is None:
+            print("Linkedlist is empty")
+            return
+        
+        found = False
+        if self.head.data == value:
+            found = True
+            self.head = self.head.nxt
+            return
+        
+        itr = self.head
 
+        while itr.nxt:
+            if itr.nxt.data == value:
+                itr.nxt = itr.nxt.nxt
+                found = True
+                return
+            itr= itr.nxt
+        if not found:
+            print("This value is not found")
 
     def print(self):
         if self.head is None:
@@ -133,6 +153,8 @@ print(length)
 # ll.print()
 ll. insert_at(2, "Drinks")
 ll.print()
-ll.insert_after_value("Drink", "Milk")
+ll.insert_after_value("Drinks", "Milk")
 ll.insert_after_value("Banana", "Water")
+ll.print()
+ll.remove_by_value("Orange")
 ll.print()
